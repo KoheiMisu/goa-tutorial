@@ -44,6 +44,10 @@ generate:
 	@goagen client  -d github.com/goadesign/goa-cellar/design
 	@goagen js      -d github.com/goadesign/goa-cellar/design -o public
 
+gen:
+	@ls | grep -E '.go$$' | grep -v -E 'app_dev' | xargs rm -f
+	@./vendor/github.com/goadesign/goa/goagen/goagen bootstrap -d project/goa-tutorial/design
+
 build:
 	@go build -o cellar
 
